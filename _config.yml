@@ -1,0 +1,10 @@
+[...]
+
+default_asides: [asides/recent_posts.html, asides/twitter.html,asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html, 'custom/asides/lastfm.html']
+
+[...]
+
+#Last.fm
+lastfm_apikey: #your lastfm api_key
+lastfm_user: #your lastfm username
+lastfm_count: # of tracks to be displayed and retrieved
