@@ -20,3 +20,7 @@ lastfm_count: <# of tracks to be displayed/retrieved>
 ```
 
 Read about the Last.fm API [here](http://www.last.fm/api/intro) and get an API key [here](http://www.last.fm/api/account).
+
+Please feel free to fork and contribute.
+
+Enjoy!
