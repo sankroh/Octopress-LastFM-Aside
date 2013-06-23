@@ -7,25 +7,22 @@
 <ul id="lastfmList">
   <li class="loading">Updating tracks...</li>
 </ul>
-<script type="text/javascript">
+<script lang="Javascript">
     /*
      * JavaScript Pretty Date
-     * Copyright (c) 2008 John Resig (jquery.com)
-     * Licensed under the MIT license.
+     * Copyright (c) 2011 John Resig (ejohn.org)
+     * Licensed under the MIT and GPL licenses.
      */
 
     // Takes an ISO time and returns a string representing how
     // long ago the date represents.
-
-    // modified to return DD MM format instead of undefined.
-    prettyDate: function (time) {
+    function prettyDate(time){
       var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
         diff = (((new Date()).getTime() - date.getTime()) / 1000),
         day_diff = Math.floor(diff / 86400);
 
-      // return date for anything greater than a day
-      if ( isNaN(day_diff) || day_diff < 0 || day_diff > 0 )
-        return date.getDate() + " " + date.toDateString().split(" ")[1];
+      if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
+        return;
 
       return day_diff == 0 && (
           diff < 60 && "just now" ||
