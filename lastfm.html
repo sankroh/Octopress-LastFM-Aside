@@ -17,8 +17,7 @@
     // Takes an ISO time and returns a string representing how
     // long ago the date represents.
     function prettyDate(time){
-      var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
-        diff = (((new Date()).getTime() - date.getTime()) / 1000),
+        diff = ((new Date()).getTime()/1000 - time),
         day_diff = Math.floor(diff / 86400);
 
       if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
@@ -45,7 +44,8 @@
             content = '';
 
         $.each(json.recenttracks.track, function(i, track){
-            content += '<li id="lastfmItem_'+i+'"><a href="'+ track.url + '">' + track.name +'</a> by '+ track.artist['#text'] + '<span class="date"> ' + prettyDate(track.date['#text']) + ' ago</span></li>';
+            var interval = prettyDate(track.date['uts']);
+            content += '<li id="lastfmItem_'+i+'"><a href="'+ track.url + '">' + track.name +'</a> by '+ track.artist['#text'] + '<span class="date"> ' + interval + ' ago</span></li>';
         });
 
         tracklist.innerHTML = content;
